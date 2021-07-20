@@ -1,0 +1,37 @@
+.portfolio {
+  margin: 0 0 125px;
+}
+
+.portfolio__title {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #A0A0A0;
+  margin: 0 0 50px 0;
+}
+
+.portfolio__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.portfolio__item {
+  cursor: pointer;
+  border-bottom: 1px solid #E8E8E8;
+  background: url(../../images/arrow-up.svg) no-repeat right;
+}
+
+.portfolio__item:last-of-type {
+  border-bottom: none;
+}
+
+.portfolio__link {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  color: #000000;
+  padding: 20px 0;
+  text-decoration: none;
+  display: inline-block;
+}

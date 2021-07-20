@@ -5,14 +5,14 @@ import logo from '../../images/text-logo.svg';
 function Promo() {
   return (
     <section className="promo">
-      <div>
+      <div className="promo__info">
         <h1 className="promo__title">Учебный проект студента факультета Веб-разработки.</h1>
-        <div className="promo__subtitle">Листайте ниже, чтобы узнать больше про этот проект
+        <p className="promo__subtitle">Листайте ниже, чтобы узнать больше про этот проект
           и его создателя.
-        </div>
+        </p>
+        <button type="button" className="promo__btn promo__learn-more">Узнать больше</button>
       </div>
       <img className="promo__img" src={logo} alt="Логотип" />
-      <button></button>
     </section>
   )
 }

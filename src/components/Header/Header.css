@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 74px;
+  padding: 18px 70px 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #073042;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+  padding-right: 30px;
+  width: 66px;
+  height: 32px;
+}
+
+.header__link:last-of-type {
+  padding-right: 0;
+}
+
+.header__link_active {
+  background-color: #2BE080;
+
+}

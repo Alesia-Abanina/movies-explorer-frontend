@@ -2,16 +2,21 @@ import React from 'react';
 import './Portfolio.css';
 
 function Portfolio() {
-  const portfolio = ["Статичный сайт", "Адаптивный сайт", "Одностраничное приложение"];
   return (
-    <div>
-      <h3 className="">Портфолио</h3>
+    <section className="portfolio">
+      <h3 className="portfolio__title">Портфолио</h3>
       <ul className="portfolio__list">
-        {portfolio.map((item) => (
-          <li className="portfolio__item">{item}</li>
-        ))}
+        <li className="portfolio__item">
+          <a className="portfolio__link" href=" ">Статичный сайт</a>
+        </li>
+        <li className="portfolio__item">
+          <a className="portfolio__link" href=" ">Адаптивный сайт</a>
+        </li>
+        <li className="portfolio__item">
+          <a className="portfolio__link" href=" ">Одностраничное приложение</a>
+        </li>
       </ul>
-    </div>
+    </section>
   )
 }
 
