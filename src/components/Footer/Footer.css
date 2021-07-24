@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 70px;
+  padding: 79px 70px 0;
 }
 
 .footer__title {
@@ -31,13 +31,14 @@
 }
 
 .footer__list {
+  padding: 0;
   list-style-type: none;
   display: flex;
   flex-direction: row;
 }
 
 .footer__item {
-  padding-right: 20px;
+  margin-right: 20px;
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
@@ -45,5 +46,5 @@
 }
 
 .footer__item:last-of-type {
-  padding-right: 0px;
+  margin-right: 0px;
 }

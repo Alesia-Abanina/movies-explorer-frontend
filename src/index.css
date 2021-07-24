@@ -2,12 +2,12 @@
 @import url("./vendor/fonts/inter.css");
 
 body {
-  background-color: #FFFFFF;
+  background-color: yellow;
   color: #000000;
 }
 
 #root {
-  font-family: "Inter", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
@@ -17,4 +17,6 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  background-color: white;
 }
+

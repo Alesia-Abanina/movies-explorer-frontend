@@ -2,11 +2,14 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
-import './App.css';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import Register from '../Register/Register';
+import Login from '../Login/Login';
+import Profile from '../Profile/Profile';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Switch>
         <Route path="/" exact>
           <Main />
@@ -15,9 +18,24 @@ function App() {
         <Route path="/movies">
           <Movies />
         </Route>
-      </Switch>
 
-    </div>
+        <Route path="/saved-movies">
+          <SavedMovies />
+        </Route>
+
+        <Route path="/profile">
+          <Profile />
+        </Route>
+
+        <Route path="/signup">
+          <Register />
+        </Route>
+
+        <Route path="/signin">
+          <Login />
+        </Route>
+      </Switch>
+    </>
   );
 }
 

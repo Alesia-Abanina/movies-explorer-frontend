@@ -1,14 +1,14 @@
 import React from 'react';
-import './Movies.css';
+import './SavedMovies.css';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
-function Movies() {
+function SavedMovies() {
   return (
-    <section>
-      <Header isLoggedIn={true} />
+    <section className="saved-movies">
+      <Header />
       <SearchForm />
       <MoviesCardList />
       <Footer />
@@ -16,4 +16,4 @@ function Movies() {
   )
 }
 
-export default Movies;
+export default SavedMovies;
