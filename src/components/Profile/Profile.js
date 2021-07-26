@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 function Profile() {
   return (
     <>
-      <Header />
+      <Header isLoggedIn={true} isDark={false} />
       <section className="profile">
 
         <div className="profile__container">
@@ -19,7 +19,7 @@ function Profile() {
                 <input type="text" className="profile__input profile__text" value="victor" required />
               </div>
               <div className="profile__fields">
-                <span className="profile__title">Email</span>
+                <span className="profile__title">E-mail</span>
                 <input type="text" className="profile__input profile__text" required />
               </div>
             </fieldset>
