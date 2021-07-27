@@ -51,6 +51,10 @@
   cursor: pointer;
 }
 
+.promo__btn:hover {
+  opacity: 0.8;
+}
+
 .promo__img {
   margin: 75px 70px 145px 0;
 }

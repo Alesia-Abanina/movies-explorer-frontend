@@ -37,3 +37,7 @@
   text-align: center;
   cursor: pointer;
 }
+
+.movies__button:hover {
+  opacity: 0.8;
+}

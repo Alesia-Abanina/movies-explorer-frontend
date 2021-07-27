@@ -3,13 +3,49 @@ import './MoviesCard.css';
 import movie from '../../images/movie.png';
 
 function MoviesCard(props) {
-  const { isSaved } = props;
-  return (
-    <li className="movies-card">
-      <img src={movie} alt="" className="movies-card__img"></img>
+  const { canSave } = props;
+  const [isSaved, setIsSaved] = React.useState(false);
+  const [isMouseOver, setMouseOver] = React.useState(false);
 
-      <button type="button" className={`movies-card__save ${isSaved && "movies-card__save_active"}`}></button>
-      {/* <button type="button" className="movies-card__delete"></button> */}
+  const handleMovieSave = () => {
+    setIsSaved(!isSaved);
+  }
+
+  const handleMovieDelete = () => {
+
+  }
+
+  const handleMouseEnter = () => {
+    setMouseOver(true);
+  }
+
+  const handleMouseLeave = () => {
+    setMouseOver(false);
+  }
+
+  return (
+    <li className="movies-card"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img src={movie} alt="" className="movies-card__img"></img>
+      {canSave
+        ? (
+          <button type="button" onClick={handleMovieSave}
+            className={`movies-card__button
+            ${isSaved
+                ? "movies-card__save_active"
+                : isMouseOver && "movies-card__save"}`}>
+          </button>
+        )
+        : (
+          <button type="button"
+            className={`movies-card__button ${isMouseOver && "movies-card__delete"}`}
+            onClick={handleMovieDelete}>
+          </button>
+        )
+      }
+
       <div className="movies-card__description">
         <h2 className="movies-card__title">movies-card</h2>
         <div className="movies-card__time">1h 17m</div>

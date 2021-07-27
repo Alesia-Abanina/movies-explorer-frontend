@@ -16,11 +16,11 @@ function Profile() {
             <fieldset className="profile__input-container">
               <div className="profile__fields">
                 <span className="profile__title">Имя</span>
-                <input type="text" className="profile__input profile__text" value="victor" required />
+                <input type="text" className="profile__input" value="victor" required />
               </div>
               <div className="profile__fields">
                 <span className="profile__title">E-mail</span>
-                <input type="text" className="profile__input profile__text" required />
+                <input type="text" className="profile__input" required />
               </div>
             </fieldset>
           </form>

@@ -35,10 +35,19 @@
   display: flex;
   text-decoration: none;
   color: #000000;
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   cursor: pointer;
   margin-right: 30px;
+}
+
+.header__link_active {
+  font-weight: 500;
+}
+
+.header__link:hover {
+  opacity: 0.8;
 }
 
 .header__link:last-of-type {
@@ -49,7 +58,7 @@
   color: white;
 }
 
-.header__link_active {
+.header__button {
   background-color: #2BE080;
   border: 1px solid #2BE080;
   box-sizing: border-box;

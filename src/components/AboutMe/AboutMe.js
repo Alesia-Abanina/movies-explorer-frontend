@@ -5,7 +5,10 @@ import Portfolio from '../Portfolio/Portfolio';
 import photo from '../../images/photo.jpg';
 
 function AboutMe() {
-  const socialMedias = ["Facebook", "Github"];
+  const socialMedias = [
+    { title: 'Facebook', link: 'https://www.facebook.com' },
+    { title: 'Github', link: 'https://github.com/Alesia-Abanina' }
+  ];
   return (
     <Section className="about-me" title="Студент">
       <div className="about-me__block">
@@ -18,8 +21,10 @@ function AboutMe() {
             заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
           <ul className="about-me__list">
-            {socialMedias.map((socialMedia) => (
-              <li className="about-me__item">{socialMedia}</li>
+            {socialMedias.map((socialMedia, key) => (
+              <li className="about-me__item" key={key}>
+                <a href={socialMedia.link} target="_blank" rel="noreferrer" className="about-me__link">{socialMedia.title}</a>
+              </li>
             ))}
           </ul>
         </div>

@@ -10,7 +10,7 @@ function Movies() {
     <section>
       <Header isLoggedIn={true} />
       <SearchForm />
-      <MoviesCardList />
+      <MoviesCardList canSave={true} />
       <Footer />
     </section>
   )

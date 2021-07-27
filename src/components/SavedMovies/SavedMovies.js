@@ -8,9 +8,9 @@ import Footer from '../Footer/Footer';
 function SavedMovies() {
   return (
     <section className="saved-movies">
-      <Header />
+      <Header isLoggedIn={true} />
       <SearchForm />
-      <MoviesCardList />
+      <MoviesCardList canSave={false} />
       <Footer />
     </section>
   )

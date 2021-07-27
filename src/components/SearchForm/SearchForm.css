@@ -57,6 +57,10 @@
   color: #FFFFFF;
 }
 
+.search-form__button:hover {
+  opacity: 0.8;
+}
+
 .search-form__separator {
   align-self: center;
   width: 1px;

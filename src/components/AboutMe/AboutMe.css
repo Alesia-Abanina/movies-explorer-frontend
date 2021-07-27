@@ -51,14 +51,22 @@
 
 .about-me__item {
   padding-right: 20px;
+}
+
+.about-me__item:last-of-type {
+  padding-right: 0;
+}
+
+.about-me__link {
+  text-decoration: none;
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
   color: #000000;
 }
 
-.about-me__item:last-of-type {
-  padding-right: 0;
+.about-me__link:hover {
+  opacity: 0.8;
 }
 
 .about-me__image {
