@@ -10,7 +10,7 @@ function AboutMe() {
     { title: 'Github', link: 'https://github.com/Alesia-Abanina' }
   ];
   return (
-    <Section className="about-me" title="Студент">
+    <Section title="Студент">
       <div className="about-me__block">
         <div className="about-me__info">
           <h2 className="about-me__title">Алеся</h2>

@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 function Main() {
   return (
     <>
-      <Header isDark={true} />
+      <Header theme="dark" isLoggedIn={false} />
       <Promo />
       <AboutProject />
       <Techs />

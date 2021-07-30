@@ -20,7 +20,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #F9F9F9;
-  padding: 19px 30px 19px 19px;
+  padding: 19px;
   border-top-left-radius: 9px;
   border-bottom-left-radius: 9px;
 }
@@ -55,6 +55,7 @@
   line-height: 18px;
   text-align: center;
   color: #FFFFFF;
+  margin: 0 11px;
 }
 
 .search-form__button:hover {

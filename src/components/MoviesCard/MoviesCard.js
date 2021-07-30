@@ -47,8 +47,8 @@ function MoviesCard(props) {
       }
 
       <div className="movies-card__description">
-        <h2 className="movies-card__title">movies-card</h2>
-        <div className="movies-card__time">1h 17m</div>
+        <h2 className="movies-card__title">В погоне за Бенкси</h2>
+        <div className="movies-card__time">1ч 17м</div>
       </div>
     </li>
   )

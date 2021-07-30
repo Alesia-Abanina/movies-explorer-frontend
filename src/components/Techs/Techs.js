@@ -5,7 +5,7 @@ import Section from '../Section/Section';
 function Techs() {
   const technologies = ["HTML", "CSS", "JS", "React", "Git", "Express.js", "mongoDB"];
   return (
-    <Section className="techs" title="Технологии" gray={true}>
+    <Section title="Технологии" gray={true}>
       <h2 className="techs__subtitle">7 технологий</h2>
       <p className="techs__description">На курсе веб-разработки мы освоили технологии,
         которые применили в дипломном проекте.
