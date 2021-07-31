@@ -61,3 +61,20 @@
   line-height: 18px;
   color: #000000;
 }
+
+@media screen and (max-width: 1024px) {
+  .filter-checkbox__container {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .filter-checkbox__container {
+    background: transparent;
+    justify-content: center;
+  }
+
+  .filter-checkbox__text {
+    font-size: 11px;
+  }
+}

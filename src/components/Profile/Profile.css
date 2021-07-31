@@ -108,3 +108,33 @@
 .profile__exit:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 1024px) {
+  .profile__heading {
+    margin: 236px 0 96px;
+  }
+
+  .profile__confirmation {
+    margin: 210px 0 0;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .profile__input-container {
+    min-width: 260px;
+  }
+
+  .profile__heading {
+    margin: 70px 0 80px;
+  }
+
+  .profile__edit {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .profile__exit {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}

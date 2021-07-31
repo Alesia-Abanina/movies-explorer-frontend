@@ -6,11 +6,10 @@ import Header from '../Header/Header';
 function Profile() {
   return (
     <>
-      <Header isLoggedIn={true} isDark={false} />
+      {/* <Header isLoggedIn={true} isDark={false} /> */}
       <section className="profile">
 
         <div className="profile__container">
-
           <h2 className="profile__heading">Привет, Виталий!</h2>
           <form className="profile__form">
             <fieldset className="profile__input-container">
