@@ -29,7 +29,7 @@ function MoviesCard(props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img src={thumbnail} alt="" className="movies-card__img"></img>
+      <img src={thumbnail} alt={title} className="movies-card__img"></img>
       {canSave
         ? (
           <button type="button" onClick={handleMovieSave}
