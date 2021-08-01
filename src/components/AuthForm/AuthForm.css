@@ -4,8 +4,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: 70px auto;
+  padding: 70px 0;
   height: 100%;
+  margin: 0 auto;
 }
 
 .auth-form__heading {
@@ -75,6 +76,15 @@
   border-bottom: 1px solid #3456F3;
 }
 
+.auth-form__item-error {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FF3055;
+  margin-top: 6px;
+  min-height: 12px;
+}
+
 .auth-form__confirmation {
   display: flex;
   flex-direction: column;
@@ -124,13 +134,13 @@
 
 @media screen and (max-width: 1024px) {
   .auth-form {
-    margin: 232px auto;
+    padding: 232px 0;
   }
 }
 
 @media screen and (max-width: 640px) {
   .auth-form {
-    margin: 56px auto 30px;
+    padding: 56px 0 30px;
     align-items: center;
   }
 

@@ -42,6 +42,9 @@
 }
 
 .promo__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-sizing: border-box;
   border-radius: 3px;
@@ -49,6 +52,7 @@
   width: 129px;
   height: 36px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .promo__btn:hover {

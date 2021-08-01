@@ -110,6 +110,10 @@
     z-index: 3;
   }
 
+  .header__burger_theme_dark {
+    background: url(../../images/burger-icon_white.svg) no-repeat center;
+  }
+
   .header__burger_active {
     background: url(../../images/close.svg) no-repeat center;
   }

@@ -17,9 +17,7 @@
 }
 
 .portfolio__item {
-  cursor: pointer;
   border-bottom: 1px solid #E8E8E8;
-  background: url(../../images/arrow-up.svg) no-repeat right;
 }
 
 .portfolio__item:last-of-type {
@@ -27,6 +25,7 @@
 }
 
 .portfolio__link {
+  width: 100%;
   font-weight: 400;
   font-size: 30px;
   line-height: 50px;
@@ -35,6 +34,7 @@
   text-decoration: none;
   display: inline-block;
   letter-spacing: -0.04em;
+  background: url(../../images/arrow-up.svg) no-repeat right;
 }
 
 @media screen and (max-width: 1024px) {
@@ -46,7 +46,6 @@
   .portfolio__item {
     background-size: 22px;
   }
-
 }
 
 @media screen and (max-width: 640px) {

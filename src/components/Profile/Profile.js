@@ -8,14 +8,13 @@ function Profile() {
     <>
       <Header isLoggedIn={true} isDark={false} />
       <section className="profile">
-
         <div className="profile__container">
           <h2 className="profile__heading">Привет, Виталий!</h2>
           <form className="profile__form">
             <fieldset className="profile__input-container">
               <div className="profile__fields">
                 <span className="profile__title">Имя</span>
-                <input type="text" className="profile__input" value="victor" required />
+                <input type="text" className="profile__input" required />
               </div>
               <div className="profile__fields">
                 <span className="profile__title">E-mail</span>

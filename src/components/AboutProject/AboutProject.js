@@ -4,7 +4,7 @@ import Section from '../Section/Section';
 
 function AboutProject() {
   return (
-    <Section title="О проекте">
+    <Section title="О проекте" id="about-project">
       <div className="about-project__columns">
         <div className="about-project__column">
           <h3 className="about-project__subtitle">Дипломный проект включал 5 этапов</h3>

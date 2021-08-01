@@ -14,11 +14,13 @@ function Login() {
       <div className="auth-form__fields">
         <span className="auth-form__title">E-mail</span>
         <input type="text" className="auth-form__input" required />
+        <span className="auth-form__item-error"></span>
       </div>
 
       <div className="auth-form__fields">
         <span className="auth-form__title">Пароль</span>
         <input type="password" className="auth-form__input" required />
+        <span className="auth-form__item-error">Что-то пошло не так...</span>
       </div>
     </AuthForm>
   )

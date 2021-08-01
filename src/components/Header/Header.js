@@ -18,7 +18,6 @@ function Header(props) {
   };
 
   const handleWindowResize = () => {
-    console.log(window.innerWidth);
     if (window.innerWidth > 768) {
       setIsBurgerOpen(false);
     }
@@ -33,7 +32,8 @@ function Header(props) {
         isLoggedIn ? (
           <div className="header__nav">
             <Navigation theme={theme} isBurgerOpen={isBurgerOpen} />
-            <button type="button" className={`header__burger ${isBurgerOpen && "header__burger_active"}`}
+            <button type="button"
+              className={`header__burger ${isBurgerOpen && "header__burger_active"} header__burger_theme_${theme}`}
               onClick={handleBurgerClick}>
             </button>
           </div>

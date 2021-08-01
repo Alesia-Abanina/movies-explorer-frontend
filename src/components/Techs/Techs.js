@@ -11,8 +11,8 @@ function Techs() {
         которые применили в дипломном проекте.
       </p>
       <ul className="techs__list">
-        {technologies.map((tech) => (
-          <li className="techs__item">{tech}</li>
+        {technologies.map((tech, key) => (
+          <li className="techs__item" key={key}>{tech}</li>
         ))}
       </ul>
     </Section>

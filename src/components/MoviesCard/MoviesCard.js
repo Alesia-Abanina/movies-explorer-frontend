@@ -1,9 +1,10 @@
 import React from 'react';
 import './MoviesCard.css';
-import movie from '../../images/movie.png';
 
 function MoviesCard(props) {
-  const { canSave } = props;
+  const { canSave, movie } = props;
+  const { title, duration, thumbnail } = movie;
+
   const [isSaved, setIsSaved] = React.useState(false);
   const [isMouseOver, setMouseOver] = React.useState(false);
 
@@ -24,11 +25,11 @@ function MoviesCard(props) {
   }
 
   return (
-    <li className="movies-card"
+    <div className="movies-card"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img src={movie} alt="" className="movies-card__img"></img>
+      <img src={thumbnail} alt="" className="movies-card__img"></img>
       {canSave
         ? (
           <button type="button" onClick={handleMovieSave}
@@ -47,10 +48,10 @@ function MoviesCard(props) {
       }
 
       <div className="movies-card__description">
-        <h2 className="movies-card__title">В погоне за Бенкси</h2>
-        <div className="movies-card__time">1ч 17м</div>
+        <h2 className="movies-card__title">{title}</h2>
+        <div className="movies-card__time">{duration}</div>
       </div>
-    </li>
+    </div>
   )
 }
 
