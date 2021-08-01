@@ -6,12 +6,14 @@ function Navigation(props) {
   const { theme = 'light', isBurgerOpen } = props;
 
   return (
-    <div className={`${isBurgerOpen && "navigation__overlay"}`} >
+    <>
       <nav className={`navigation ${isBurgerOpen && "navigation_active"}`} >
         <div className="navigation__movies">
-          <NavLink to="/" className={`navigation__link navigation__link_${theme}`}
-            activeClassName={'navigation__link_active'} exact>Главная
-          </NavLink>
+          {isBurgerOpen && (
+            <NavLink to="/" className={`navigation__link navigation__link_${theme}`}
+              activeClassName={'navigation__link_active'} exact>Главная
+            </NavLink>
+          )}
           <NavLink to="movies" className={`navigation__link navigation__link_${theme}`}
             activeClassName="navigation__link_active">Фильмы
           </NavLink>
@@ -24,7 +26,8 @@ function Navigation(props) {
           <div className="navigation__profile-icon"></div>
         </Link>
       </nav>
-    </div>
+      <div className={`${isBurgerOpen && "navigation__overlay"}`} />
+    </>
   )
 }
 
