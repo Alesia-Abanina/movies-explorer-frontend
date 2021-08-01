@@ -81,11 +81,18 @@
   border: 0;
 }
 
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .header__burger {
   display: none;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .header {
     padding: 18px 30px;
   }
@@ -100,6 +107,11 @@
     border: none;
     cursor: pointer;
     outline-style: none;
+    z-index: 3;
+  }
+
+  .header__burger_active {
+    background: url(../../images/close.svg) no-repeat center;
   }
 }
 

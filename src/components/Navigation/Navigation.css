@@ -1,5 +1,5 @@
 .navigation {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -62,29 +62,35 @@
   border: 0;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 768px) {
   .navigation__overlay {
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, .3);
     z-index: 2;
-}
+  }
 
   .navigation {
     display: none;
     flex-direction: column;
     justify-content: space-around;
     position: fixed;
-    background-color: wheat;
+    min-width: 320px;
+    background-color: white;
     top: 0;
     right: 0;
-    width: 68vw;
-    height: 100vh;
+    width: 68%;
+    height: 100%;
     z-index: 3;
     transition: all 0.3s ease 0s;
+  }
+
+  .navigation_active{
+    display: flex;
   }
 
   .navigation__movies {
@@ -109,9 +115,9 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .navigation {
-    max-width: 100%;
+    max-width: 320px;
     width: 100vw;
   }
 }

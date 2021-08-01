@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 function Profile() {
   return (
     <>
-      {/* <Header isLoggedIn={true} isDark={false} /> */}
+      <Header isLoggedIn={true} isDark={false} />
       <section className="profile">
 
         <div className="profile__container">

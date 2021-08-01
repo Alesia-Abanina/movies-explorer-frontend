@@ -10,7 +10,7 @@ function Movies() {
   const isLoading = false;
   return (
     <section>
-      {/* <Header isLoggedIn={true} /> */}
+      <Header isLoggedIn={true} />
       <SearchForm />
       {isLoading ? (
         <Preloader />

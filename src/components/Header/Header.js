@@ -8,9 +8,20 @@ function Header(props) {
   const { isLoggedIn, theme = 'light' } = props;
   const [isBurgerOpen, setIsBurgerOpen] = React.useState(false);
 
+  React.useEffect(() => {
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  });
+
   const handleBurgerClick = () => {
     setIsBurgerOpen(!isBurgerOpen);
-    // isBurgerOpen ? setHiddenHeader(false) : setHiddenHeader(true);
+  };
+
+  const handleWindowResize = () => {
+    console.log(window.innerWidth);
+    if (window.innerWidth > 768) {
+      setIsBurgerOpen(false);
+    }
   };
 
   return (
@@ -18,19 +29,21 @@ function Header(props) {
       <Link to="/">
         <img className="header__logo" src={logo} alt="Логотип" />
       </Link>
-      {isLoggedIn ? (
-        <>
-          <Navigation theme={theme} />
-          <button type="button" className="header__burger"
-            onClick={handleBurgerClick}>
-          </button>
-        </>
-      ) : (
-        <div className="header__auth">
-          <Link to="signup" className="header__link header__link_dark">Регистрация</Link>
-          <Link to="signin" className="header__link header__button">Войти</Link>
-        </div>
-      )}
+      {
+        isLoggedIn ? (
+          <div className="header__nav">
+            <Navigation theme={theme} isBurgerOpen={isBurgerOpen} />
+            <button type="button" className={`header__burger ${isBurgerOpen && "header__burger_active"}`}
+              onClick={handleBurgerClick}>
+            </button>
+          </div>
+        ) : (
+          <div className="header__auth">
+            <Link to="signup" className="header__link header__link_dark">Регистрация</Link>
+            <Link to="signin" className="header__link header__button">Войти</Link>
+          </div>
+        )
+      }
     </header>
   )
 }
