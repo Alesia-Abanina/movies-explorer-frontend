@@ -2,8 +2,8 @@
 Репозиторий для приложения дипломного проекта `Movies Explorer`, включающий фронтенд.
 
 - Публичный ip адрес: 20.92.72.233
-- Фронтэнд: https://mesto.abanina.nomoredomains.monster
-- Бэкэнд: https://api.mesto.abanina.nomoredomains.monster
+- Фронтэнд: https://movies.abanina.nomoredomains.monster
+- Бэкэнд: https://api.movies.abanina.nomoredomains.monster
 
 ## Роуты
 Подготовлены необходимые маршруты:
