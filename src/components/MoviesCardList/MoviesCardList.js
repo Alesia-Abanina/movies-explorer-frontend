@@ -1,23 +1,8 @@
 import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import thumbnail from '../../images/movie.png';
 
-function MoviesCardList(props) {
-  const { canSave } = props;
-  const movies = [
-    {
-      title: 'В погоне за Бенкси',
-      duration: '1ч 17м',
-      thumbnail: thumbnail,
-    },
-    {
-      title: 'В погоне за Бенкси',
-      duration: '1ч 17м',
-      thumbnail: thumbnail,
-    },
-  ];
-
+function MoviesCardList({ canSave, movies }) {
   return (
     <section className="movies">
       <ul className="movies__list">

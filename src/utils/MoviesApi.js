@@ -4,6 +4,10 @@ class MoviesApi {
     this._headers = options.headers;
   }
 
+  getBaseUrl() {
+    return this._baseUrl;
+  }
+
   getMovies() {
     return fetch(`${this._baseUrl}/beatfilm-movies`, {
       headers: this._headers

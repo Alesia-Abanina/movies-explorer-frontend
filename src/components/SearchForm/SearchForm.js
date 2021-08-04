@@ -3,13 +3,24 @@ import './SearchForm.css';
 import searchIcon from '../../images/search-icon.svg';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm() {
+function SearchForm({ onSearch }) {
+  const nameRef = React.useRef();
+
+  React.useEffect(() => {
+    nameRef.current.value = '';
+  });
+
+  function handleSearch(e) {
+    e.preventDefault();
+    onSearch(nameRef.current.value);
+  }
+
   return (
     <section className="search">
-      <form className="search-form">
+      <form className="search-form" onSubmit={handleSearch}>
         <div className="search-form__input-container">
           <img className="search-form__icon" src={searchIcon} alt="Поиск"></img>
-          <input className="search-form__input" placeholder="Фильм" required />
+          <input className="search-form__input" ref={nameRef} placeholder="Фильм" required />
           <button className="search-form__button" type="submit">Найти</button>
         </div>
         <div className="search-form__separator"></div>
