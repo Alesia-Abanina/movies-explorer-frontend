@@ -1,0 +1,139 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 74px;
+  padding: 0 70px;
+  box-sizing: border-box;
+}
+
+.header__theme_dark {
+  background-color: #073042;
+  color: #FFFFFF;
+}
+
+.header__theme_light {
+  background-color: white;
+  color: black;
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.header__link {
+  display: flex;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.header__link_dark {
+  color: white;
+}
+
+.header__link_light {
+  color: #000000;
+}
+
+.header__link_active {
+  font-weight: 500;
+}
+
+.header__link:hover {
+  opacity: 0.8;
+}
+
+.header__link:last-of-type {
+  margin-right: 0;
+}
+
+.header__button {
+  background-color: #2BE080;
+  border: 1px solid #2BE080;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 8px 20px;
+  color: #000000;
+}
+
+.header__profile-text {
+  display: flex;
+  align-items: center;
+  margin-right: 17px;
+}
+
+.header__profile-icon {
+  background: url(../../images/account-icon.svg) no-repeat center;
+  width: 26px;
+  height: 30px;
+  background-color: #F9F9F9;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.header__burger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 18px 30px;
+  }
+
+  .header__burger {
+    background: url(../../images/burger-icon.svg) no-repeat center;
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    outline-style: none;
+    z-index: 3;
+  }
+
+  .header__burger_theme_dark {
+    background: url(../../images/burger-icon_white.svg) no-repeat center;
+  }
+
+  .header__burger_active {
+    background: url(../../images/close.svg) no-repeat center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header {
+    padding: 18px 14px;
+  }
+
+  .header__link {
+    font-size: 10px;
+    margin-right: 14px;
+  }
+
+  .header__button {
+    padding: 5px 12px;
+  }
+
+  .header__burger {
+    width: 28px;
+  }
+}

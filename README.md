@@ -1,1 +1,14 @@
-# movies-explorer-frontend
+# Movies Explorer Frontend
+Репозиторий для приложения дипломного проекта `Movies Explorer`, включающий фронтенд.
+
+- Публичный ip адрес: 20.92.72.233
+- Фронтэнд: https://mesto.abanina.nomoredomains.monster
+- Бэкэнд: https://api.mesto.abanina.nomoredomains.monster
+
+## Роуты
+Подготовлены необходимые маршруты:
+- / - отображается страница «О проекте»;
+- /movies - отображается страница «Фильмы»;
+- /saved-movies - отображается страница «Сохранённые фильмы»;
+- /profile - отображается страница с профилем пользователя;
+- /signin и /signup - отображаются страницы авторизации и регистрации.

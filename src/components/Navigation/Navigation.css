@@ -1,0 +1,127 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 44px;
+}
+
+.navigation__overlay {
+  display: none;
+}
+
+.navigation__movies {
+  display: flex;
+}
+
+.navigation__link {
+  display: flex;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.navigation__link_dark {
+  color: white;
+}
+
+.navigation__link_light {
+  color: #000000;
+}
+
+.navigation__link_active {
+  font-weight: 500;
+}
+
+.navigation__link:hover {
+  opacity: 0.8;
+}
+
+.navigation__link:last-of-type {
+  margin-right: 0;
+}
+
+.navigation__profile-text {
+  display: flex;
+  align-items: center;
+  margin-right: 17px;
+}
+
+.navigation__profile-icon {
+  background: url(../../images/account-icon.svg) no-repeat center;
+  width: 26px;
+  height: 30px;
+  background-color: #F9F9F9;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 2;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    min-width: 320px;
+    background-color: white;
+    top: 0;
+    right: 0;
+    width: 68%;
+    height: 100%;
+    z-index: 3;
+    transition: all 0.3s ease 0s;
+  }
+
+  .navigation_active{
+    display: flex;
+  }
+
+  .navigation__movies {
+    flex-direction: column;
+    align-items: center;
+}
+
+  .navigation__link{
+    margin: 0 0 28px 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+  }
+
+  .navigation__link_dark {
+    color: black;
+  }
+
+  .navigation__link:last-of-type {
+    margin: 0;
+  }
+
+  .navigation__link_active {
+    border-bottom: 2px solid #000000;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation {
+    max-width: 320px;
+    width: 100vw;
+  }
+}
