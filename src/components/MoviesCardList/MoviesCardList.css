@@ -37,6 +37,10 @@
   opacity: 0.8;
 }
 
+.movies__not-found {
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 1024px) {
   .movies {
     padding: 70px 30px 0;

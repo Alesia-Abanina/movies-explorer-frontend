@@ -6,30 +6,30 @@ import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import moviesApi from '../../utils/MoviesApi';
+import * as moviesUtils from '../../utils/MoviesUtils'
 
 function Movies() {
-  const isLoading = false;
+  const [isLoading, setIsLoading] = React.useState(false);
   const [movies, setMovies] = React.useState([]);
+  const [notFound, setNotFound] = React.useState(false);
 
   const handleSearch = (keyword) => {
+    setMovies([]);
+    setIsLoading(true);
+    setNotFound(false);
+
     moviesApi.getMovies()
-      .then((res) => {
-        setMovies(res.reduce((accum, movie) => {
-          const h = Math.floor(movie.duration / 60);
-          const m = movie.duration % 60;
+      .then((allMovies) => {
+        const converted = moviesUtils.convertMovies(allMovies);
+        const filtered = moviesUtils.searchMovies(converted, keyword, false);
 
-          if (movie.nameRU.toLowerCase().includes(keyword.toLowerCase())) {
-            accum.push({
-              title: movie.nameRU,
-              duration: `${h !== 0 ? h + 'ч' : ''} ${m}м`,
-              thumbnail: moviesApi.getBaseUrl() + movie.image.url
-            });
-          }
-
-          return accum;
-        }, []));
+        if (filtered.length === 0) {
+          setNotFound(true);
+        }
+        setMovies(filtered);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+      .finally(() => setIsLoading(false));
   }
 
   return (
@@ -39,7 +39,7 @@ function Movies() {
       {isLoading ? (
         <Preloader />
       ) : (
-        <MoviesCardList canSave={true} movies={movies} />
+        <MoviesCardList canSave={true} movies={movies} notFound={notFound} />
       )}
       <Footer />
     </section>

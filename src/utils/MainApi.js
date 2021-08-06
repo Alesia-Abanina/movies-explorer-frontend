@@ -108,7 +108,8 @@ class MainApi {
 }
 
 const api = new MainApi({
-  baseUrl: 'https://api.movies.abanina.nomoredomains.monster',
+  //baseUrl: 'https://api.movies.abanina.nomoredomains.monster',
+  baseUrl: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json'
   }

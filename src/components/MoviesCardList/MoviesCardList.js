@@ -2,7 +2,7 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ canSave, movies }) {
+function MoviesCardList({ canSave, movies, notFound }) {
   return (
     <section className="movies">
       <ul className="movies__list">
@@ -12,7 +12,8 @@ function MoviesCardList({ canSave, movies }) {
           </li>
         ))}
       </ul>
-      <button className="movies__button" type="button">Ещё</button>
+      {movies.length > 0 && <button className="movies__button" type="button">Ещё</button>}
+      {notFound && <p className="movies__not-found">Ничего не найдено</p>}
     </section>
   )
 }
