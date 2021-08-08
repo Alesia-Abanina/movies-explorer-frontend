@@ -1,0 +1,9 @@
+.saved-movies{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.saved-movies__form{
+  flex: 1;
+}

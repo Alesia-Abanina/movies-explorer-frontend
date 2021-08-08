@@ -99,17 +99,18 @@ class MainApi {
       .then((res) => this._processResponse(res));
   }
 
-  _processResponse(res) {
+  async _processResponse(res) {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    const err = await res.json();
+    return Promise.reject(new Error(err.message));
   }
 }
 
 const api = new MainApi({
-  //baseUrl: 'https://api.movies.abanina.nomoredomains.monster',
-  baseUrl: 'http://localhost:3001',
+  baseUrl: 'https://api.movies.abanina.nomoredomains.monster',
+  //baseUrl: 'http://localhost:3001',
   headers: {
     'Content-Type': 'application/json'
   }

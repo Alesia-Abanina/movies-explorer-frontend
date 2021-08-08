@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: space-between;
 }
 
 .profile__container {
@@ -94,6 +95,12 @@
   padding: 0;
   margin: 0 0 16px;
   cursor: pointer;
+}
+
+.profile__edit:disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .profile__edit:hover {

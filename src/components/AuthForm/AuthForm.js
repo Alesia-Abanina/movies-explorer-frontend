@@ -4,7 +4,7 @@ import './AuthForm.css';
 import logo from '../../images/logo.svg';
 
 function AuthForm(props) {
-  const { title, linkName, linkTitle, linkRoute, buttonText, children, onSubmit } = props;
+  const { title, linkName, linkTitle, linkRoute, buttonText, children, isValid, onSubmit } = props;
 
   return (
     <section className="auth-form">
@@ -17,7 +17,7 @@ function AuthForm(props) {
           {children}
         </fieldset>
         <div className="auth-form__confirmation">
-          <button type="submit" className="auth-form__button">{buttonText}</button>
+          <button type="submit" className="auth-form__button" disabled={!isValid ? "true" : ""}>{buttonText}</button>
           <p className="auth-form__text">{linkTitle}
             <Link to={linkRoute} className="auth-form__link">{linkName}</Link>
           </p>

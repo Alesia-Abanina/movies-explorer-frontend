@@ -1,0 +1,8 @@
+.validation-error {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FF3055;
+  margin-top: 6px;
+  min-height: 12px;
+}
