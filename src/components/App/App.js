@@ -15,7 +15,6 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import * as moviesUtils from '../../utils/MoviesUtils'
 import { requestErrorMessage } from '../../utils/constants'
 
-
 function App() {
   const history = useHistory();
   const [searchCriteria, setSearchCriteria] = React.useState({
@@ -148,7 +147,6 @@ function App() {
       await api.deleteMovie(found._id);
       found.saved = false;
       updateSavedMovies(savedMovies.filter((m) => m._id !== movie._id));
-
     } catch (err) {
       showMessage(err.message, false);
       console.log(err);

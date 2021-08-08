@@ -1,7 +1,7 @@
 import React from 'react';
 import './FilterCheckbox.css';
 
-function FilterCheckbox({ onChange, isSelected } ) {
+function FilterCheckbox({ onChange, isSelected }) {
   return (
     <div className="filter-checkbox__container">
       <label className="filter-checkbox__label">

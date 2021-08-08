@@ -8,7 +8,6 @@ import { validation } from '../../utils/constants'
 function Register({ onRegister }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -51,7 +50,6 @@ function Register({ onRegister }) {
           className="auth-form__input" required onChange={handleChange} />
         <ValidationError text={errors.password} />
       </div>
-
     </AuthForm>
   )
 }

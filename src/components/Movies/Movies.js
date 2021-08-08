@@ -6,7 +6,8 @@ import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
-function Movies({ searchCriteria, loggedIn, isLoading, onSearch, movies, notFound, onMovieSave, onDelete }) {
+function Movies({ searchCriteria, loggedIn, isLoading,
+  onSearch, movies, notFound, onMovieSave, onDelete }) {
   return (
     <section className="movies">
       <Header loggedIn={loggedIn} />
@@ -15,7 +16,8 @@ function Movies({ searchCriteria, loggedIn, isLoading, onSearch, movies, notFoun
         {isLoading ? (
           <Preloader />
         ) : (
-          <MoviesCardList canSave={true} movies={movies} notFound={notFound} onSave={onMovieSave} onDelete={onDelete} />
+          <MoviesCardList canSave={true} movies={movies} notFound={notFound}
+            onSave={onMovieSave} onDelete={onDelete} />
         )}
       </div>
       <Footer />
