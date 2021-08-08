@@ -4,8 +4,6 @@ import './MoviesCard.css';
 function MoviesCard(props) {
   const { canSave, movie, onSave, onDelete } = props;
   const { nameRU, duration, thumbnail, saved, trailer } = movie;
-
-  const [isSaved, setIsSaved] = React.useState(saved);
   const [isMouseOver, setMouseOver] = React.useState(false);
 
   const h = Math.floor(duration / 60);
@@ -13,12 +11,11 @@ function MoviesCard(props) {
   const durationStr = `${h !== 0 ? h + 'ч' : ''} ${m}м`;
 
   const handleMovieSave = () => {
-    if (!isSaved) {
+    if (!saved) {
       onSave(movie);
     } else {
       onDelete(movie);
     }
-    setIsSaved(!isSaved);
   }
 
   const handleMovieDelete = () => {
@@ -47,7 +44,7 @@ function MoviesCard(props) {
         ? (
           <button type="button" onClick={handleMovieSave}
             className={`movies-card__button
-            ${isSaved
+            ${saved
                 ? "movies-card__save_active"
                 : isMouseOver && "movies-card__save"}`}>
           </button>

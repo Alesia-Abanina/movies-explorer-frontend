@@ -1,5 +1,13 @@
 import { MOVIE_API_URL } from './constants';
 
+const isNullOrWhitespace = (input) =>{
+  return !input || !input.trim();
+}
+
+const getStringOrDefault = (input) =>{
+  return isNullOrWhitespace(input)  ? 'n/a': input;
+}
+
 export const convertMovies = (movies, savedMovies) => {
   let m = new Map(savedMovies.map(item => [item.movieId, item]));
 
@@ -12,14 +20,14 @@ export const convertMovies = (movies, savedMovies) => {
     } else {
       res = {
         movieId: movie.id,
-        nameRU: movie.nameRU ?? 'n/a',
-        nameEN: movie.nameEN ?? 'n/a',
-        director: movie.director ?? 'n/a',
-        country: movie.country ?? 'n/a',
-        year: movie.year ?? 'n/a',
-        duration: movie.duration ?? 0,
-        description: movie.description ?? 'n/a',
-        trailer: movie.trailerLink ?? 'n/a',
+        nameRU: getStringOrDefault(movie.nameRU),
+        nameEN: getStringOrDefault(movie.nameEN),
+        director: getStringOrDefault(movie.director),
+        country: getStringOrDefault(movie.country),
+        year: getStringOrDefault(movie.year),
+        duration: movie.duration,
+        description: getStringOrDefault(movie.description),
+        trailer: getStringOrDefault(movie.trailerLink),
         image: MOVIE_API_URL + movie.image.url,
         thumbnail: MOVIE_API_URL + movie.image.formats.thumbnail.url,
         saved: false,
