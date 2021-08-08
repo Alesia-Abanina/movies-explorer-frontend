@@ -18,7 +18,9 @@ function SearchForm({ searchCriteria, onSearch }) {
   }
 
   const handleCheckboxChange = () => {
-    setIsCheckboxSelected(!isCheckboxSelected);
+    const isSelected = !isCheckboxSelected;
+    setIsCheckboxSelected(isSelected);
+    onSearch(nameRef.current.value, isSelected);
   }
 
   return (
@@ -30,7 +32,7 @@ function SearchForm({ searchCriteria, onSearch }) {
           <button className="search-form__button" type="submit">Найти</button>
         </div>
         <div className="search-form__separator"></div>
-        <FilterCheckbox text="Короткометражки" isSelected={searchCriteria.isShort} onChange={handleCheckboxChange}/>
+        <FilterCheckbox text="Короткометражки" isSelected={searchCriteria.isShort} onChange={handleCheckboxChange} />
       </form>
     </section>
   );

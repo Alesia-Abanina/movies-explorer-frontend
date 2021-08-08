@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
-import ProtectedRoute from '../../utils/ProtectedRoute';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
@@ -13,6 +13,7 @@ import api from '../../utils/MainApi'
 import moviesApi from '../../utils/MoviesApi';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import * as moviesUtils from '../../utils/MoviesUtils'
+import { requestErrorMessage } from '../../utils/constants'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
   const [savedMovies, setSavedMovies] = React.useState([]);
   const [filteredSavedMovies, setFilteredSavedMovies] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isInitializing, setIsInitializing] = React.useState(true);
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({
     name: '',
@@ -52,7 +54,7 @@ function App() {
   }
 
   const updateSavedMovies = (movies) => {
-    const {keyword, isShort} = savedSearchCriteria;
+    const { keyword, isShort } = savedSearchCriteria;
     setSavedMovies(movies);
     const filtered = moviesUtils.searchMovies(movies, keyword, isShort);
     setFilteredSavedMovies(filtered);
@@ -73,6 +75,11 @@ function App() {
         showMessage(err.message, false);
         console.log(err);
       }
+      setIsInitializing(false);
+    }
+    const localMovies = localStorage.getItem('allMovies');
+    if (localMovies) {
+      setAllMovies(JSON.parse(localMovies));
     }
     tokenCheck();
   }, []);
@@ -91,6 +98,7 @@ function App() {
           console.log(err);
         }
       }
+
       setUser();
     }
   }, [loggedIn]);
@@ -102,21 +110,22 @@ function App() {
       if (allMovies.length === 0) {
         const movies = await moviesApi.getMovies();
         converted = moviesUtils.convertMovies(movies, savedMovies);
+        localStorage.setItem('allMovies', JSON.stringify(converted));
         setAllMovies(converted);
       }
     } catch (err) {
-      showMessage(err.message, false);
+      showMessage(requestErrorMessage, false);
       console.log(err);
     }
     setIsLoading(false);
 
-    setSearchCriteria({keyword, isShort});
+    setSearchCriteria({ keyword, isShort });
     const filtered = moviesUtils.searchMovies(converted, keyword, isShort);
     setFilteredMovies(filtered);
   }
 
   const handleSavedSearch = async (keyword, isShort) => {
-    setSavedSearchCriteria({keyword, isShort})
+    setSavedSearchCriteria({ keyword, isShort })
     const filtered = moviesUtils.searchMovies(savedMovies, keyword, isShort);
     setFilteredSavedMovies(filtered);
   }
@@ -151,7 +160,7 @@ function App() {
       const user = await api.register(name, email, password);
       showMessage("Регистрация прошла успешно.", true);
       if (user) {
-        handleLogin({email, password});
+        handleLogin({ email, password });
       }
     } catch (err) {
       showMessage(err.message, false);
@@ -159,7 +168,7 @@ function App() {
     }
   };
 
-  const handleLogin = async ({email, password}) => {
+  const handleLogin = async ({ email, password }) => {
     try {
       handleLogout();
       const data = await api.login(email, password);
@@ -209,6 +218,7 @@ function App() {
         <ProtectedRoute path="/movies"
           component={Movies}
           searchCriteria={searchCriteria}
+          isInitializing={isInitializing}
           loggedIn={loggedIn}
           isLoading={isLoading}
           movies={filteredMovies}
@@ -220,6 +230,7 @@ function App() {
         <ProtectedRoute path="/saved-movies"
           component={SavedMovies}
           searchCriteria={savedSearchCriteria}
+          isInitializing={isInitializing}
           loggedIn={loggedIn}
           isLoading={isLoading}
           movies={filteredSavedMovies}
@@ -229,6 +240,7 @@ function App() {
 
         <ProtectedRoute path="/profile"
           component={Profile}
+          isInitializing={isInitializing}
           loggedIn={loggedIn}
           onUpdateProfile={handleUpdateProfile}
           onLogout={handleLogout}

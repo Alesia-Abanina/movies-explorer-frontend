@@ -3,7 +3,7 @@ import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import './Register.css';
 import AuthForm from '../AuthForm/AuthForm';
 import ValidationError from '../ValidationError/ValidationError';
-import {validation} from '../../utils/constants'
+import { validation } from '../../utils/constants'
 
 function Register({ onRegister }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
@@ -17,7 +17,6 @@ function Register({ onRegister }) {
       email: values.email,
       password: values.password,
     });
-    //.then(resetFrom);
   };
 
   return (
@@ -35,7 +34,7 @@ function Register({ onRegister }) {
         <input id="name-input" name="name" type="text"
           minLength="2" maxLength="30" pattern={validation.name} required
           className="auth-form__input" onChange={handleChange} />
-        <ValidationError text={errors.name}/>
+        <ValidationError text={errors.name} />
       </div>
 
       <div className="auth-form__fields">
@@ -43,14 +42,14 @@ function Register({ onRegister }) {
         <input id="email-input" name="email" type="email"
           pattern={validation.email} required
           className="auth-form__input" onChange={handleChange} />
-        <ValidationError text={errors.email}/>
+        <ValidationError text={errors.email} />
       </div>
 
       <div className="auth-form__fields">
         <span className="auth-form__title">Пароль</span>
         <input id="password-input" name="password" type="password"
           className="auth-form__input" required onChange={handleChange} />
-        <ValidationError text={errors.password}/>
+        <ValidationError text={errors.password} />
       </div>
 
     </AuthForm>
