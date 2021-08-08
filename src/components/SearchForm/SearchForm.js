@@ -8,8 +8,8 @@ function SearchForm({ searchCriteria, onSearch }) {
   const [isCheckboxSelected, setIsCheckboxSelected] = React.useState(false);
 
   React.useEffect(() => {
-    nameRef.current.value = searchCriteria.keyword;
-    setIsCheckboxSelected(searchCriteria.isShort);
+    nameRef.current.value = searchCriteria.keyword ?? '';
+    setIsCheckboxSelected(searchCriteria.isShort ?? false);
   }, [searchCriteria]);
 
   const handleSearch = (e) => {

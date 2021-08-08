@@ -17,7 +17,7 @@ function AuthForm(props) {
           {children}
         </fieldset>
         <div className="auth-form__confirmation">
-          <button type="submit" className="auth-form__button" disabled={!isValid ? "true" : ""}>{buttonText}</button>
+          <button type="submit" className="auth-form__button" disabled={!isValid}>{buttonText}</button>
           <p className="auth-form__text">{linkTitle}
             <Link to={linkRoute} className="auth-form__link">{linkName}</Link>
           </p>

@@ -7,32 +7,32 @@ function MoviesCardList({ canSave, movies, onSave, onDelete }) {
   const [moreMoviesNumber, setMoreMoviesNumber] = React.useState(3);
 
   React.useEffect(() => {
+    const setDefaultValues = () => {
+      if (window.innerWidth <= 480) {
+        if (displayMoviesNumber < 5) {
+          setDisplayMoviesNumber(5);
+        }
+        setMoreMoviesNumber(1);
+      } else if (window.innerWidth <= 768) {
+        if (displayMoviesNumber < 8) {
+          setDisplayMoviesNumber(8);
+        }
+        setMoreMoviesNumber(2);
+      } else {
+        if (displayMoviesNumber < 12) {
+          setDisplayMoviesNumber(12);
+        }
+        setMoreMoviesNumber(3);
+      }
+    }
+
     const handleWindowResize = () => {
       setTimeout(() => setDefaultValues(), 500);
     };
 
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
-
-  const setDefaultValues = () => {
-    if (window.innerWidth <= 480) {
-      if (displayMoviesNumber < 5) {
-        setDisplayMoviesNumber(5);
-      }
-      setMoreMoviesNumber(1);
-    } else if (window.innerWidth <= 768) {
-      if (displayMoviesNumber < 8) {
-        setDisplayMoviesNumber(8);
-      }
-      setMoreMoviesNumber(2);
-    } else {
-      if (displayMoviesNumber < 12) {
-        setDisplayMoviesNumber(12);
-      }
-      setMoreMoviesNumber(3);
-    }
-  }
+  }, [displayMoviesNumber, moreMoviesNumber]);
 
   const handleMore = () => {
     setDisplayMoviesNumber(displayMoviesNumber + moreMoviesNumber);

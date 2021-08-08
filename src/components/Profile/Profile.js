@@ -51,7 +51,7 @@ function Profile({ onUpdateProfile, onLogout, loggedIn }) {
               <ValidationError text={errors.email}/>
             </fieldset>
             <div className="profile__confirmation">
-              <button type="submit" className="profile__edit" disabled={!isValid ? "true" : ""}>Редактировать</button>
+              <button type="submit" className="profile__edit" disabled={!isValid}>Редактировать</button>
               <Link to="/" className="profile__exit" onClick={onLogout}>Выйти из аккаунта</Link>
             </div>
           </form>

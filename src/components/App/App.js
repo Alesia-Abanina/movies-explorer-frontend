@@ -51,20 +51,14 @@ function App() {
     setIsInfoTooltipOpen(false);
   }
 
-  React.useEffect(() => {
-    const onLogin = async (user) => {
-      setLoggedIn(true);
-      setCurrentUser({ email: user.email, name: user.name });
-      try {
-        const movies = await api.getMovies();
-        setSavedMovies(movies);
-        setFilteredSavedMovies(movies);
-      } catch (err) {
-        showMessage(err.message, false);
-        console.log(err);
-      }
-    }
+  const updateSavedMovies = (movies) => {
+    const {keyword, isShort} = savedSearchCriteria;
+    setSavedMovies(movies);
+    const filtered = moviesUtils.searchMovies(movies, keyword, isShort);
+    setFilteredSavedMovies(filtered);
+  }
 
+  React.useEffect(() => {
     const tokenCheck = async () => {
       try {
         const jwt = localStorage.getItem('jwt');
@@ -72,7 +66,7 @@ function App() {
           const user = await api.checkToken(jwt);
           if (user) {
             api.setToken(jwt);
-            onLogin(user);
+            setLoggedIn(true);
           }
         }
       } catch (err) {
@@ -81,7 +75,7 @@ function App() {
       }
     }
     tokenCheck();
-  }, [history]);
+  }, []);
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -89,6 +83,9 @@ function App() {
         try {
           const user = await api.getUserInfo();
           setCurrentUser({ email: user.email, name: user.name });
+          const movies = await api.getMovies();
+          setSavedMovies(movies);
+          setFilteredSavedMovies(movies);
         } catch (err) {
           showMessage(err.message, false);
           console.log(err);
@@ -129,7 +126,7 @@ function App() {
       const savedMovie = await api.createMovie(movie);
       movie.saved = true;
       movie._id = savedMovie._id;
-      setSavedMovies([movie, ...savedMovies]);
+      updateSavedMovies([movie, ...savedMovies]);
     } catch (err) {
       showMessage(err.message, false);
       console.log(err);
@@ -141,7 +138,8 @@ function App() {
       const found = savedMovies.find(m => m.movieId === movie.movieId);
       await api.deleteMovie(found._id);
       found.saved = false;
-      setSavedMovies(savedMovies.filter((m) => m._id !== movie._id));
+      updateSavedMovies(savedMovies.filter((m) => m._id !== movie._id));
+
     } catch (err) {
       showMessage(err.message, false);
       console.log(err);
@@ -181,6 +179,13 @@ function App() {
     setLoggedIn(false);
     setCurrentUser({ name: '', email: '' });
     localStorage.removeItem('jwt');
+    setSearchCriteria({});
+    setSavedSearchCriteria({});
+
+    setAllMovies([]);
+    setFilteredMovies([]);
+    setSavedMovies([]);
+    setFilteredSavedMovies([]);
   }
 
   const handleUpdateProfile = async (info) => {
