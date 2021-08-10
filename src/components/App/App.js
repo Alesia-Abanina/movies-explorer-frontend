@@ -59,6 +59,23 @@ function App() {
     setFilteredSavedMovies(filtered);
   }
 
+  function loadCurrentState(saved) {
+    const localMovies = localStorage.getItem('allMovies');
+    if (localMovies) {
+      const movies = JSON.parse(localMovies);
+      const converted = moviesUtils.convertMovies(movies, saved);
+      setAllMovies(converted);
+
+      const localSearchCriteria = localStorage.getItem('searchCriteria');
+      if (localSearchCriteria) {
+        const search = JSON.parse(localSearchCriteria);
+        setSearchCriteria(search);
+        const filtered = moviesUtils.searchMovies(converted, search.keyword, search.isShort);
+        setFilteredMovies(filtered);
+      }
+    }
+  }
+
   React.useEffect(() => {
     const tokenCheck = async () => {
       try {
@@ -76,10 +93,7 @@ function App() {
       }
       setIsInitializing(false);
     }
-    const localMovies = localStorage.getItem('allMovies');
-    if (localMovies) {
-      setAllMovies(JSON.parse(localMovies));
-    }
+
     tokenCheck();
   }, []);
 
@@ -92,6 +106,7 @@ function App() {
           const movies = await api.getMovies();
           setSavedMovies(movies);
           setFilteredSavedMovies(movies);
+          loadCurrentState(movies);
         } catch (err) {
           showMessage(err.message, false);
           console.log(err);
@@ -108,8 +123,8 @@ function App() {
     try {
       if (allMovies.length === 0) {
         const movies = await moviesApi.getMovies();
+        localStorage.setItem('allMovies', JSON.stringify(movies));
         converted = moviesUtils.convertMovies(movies, savedMovies);
-        localStorage.setItem('allMovies', JSON.stringify(converted));
         setAllMovies(converted);
       }
     } catch (err) {
@@ -119,6 +134,7 @@ function App() {
     setIsLoading(false);
 
     setSearchCriteria({ keyword, isShort });
+    localStorage.setItem('searchCriteria', JSON.stringify({ keyword, isShort }));
     const filtered = moviesUtils.searchMovies(converted, keyword, isShort);
     setFilteredMovies(filtered);
   }
@@ -186,6 +202,9 @@ function App() {
     setLoggedIn(false);
     setCurrentUser({ name: '', email: '' });
     localStorage.removeItem('jwt');
+    localStorage.removeItem('allMovies');
+    localStorage.removeItem('searchCriteria');
+
     setSearchCriteria({});
     setSavedSearchCriteria({});
 
