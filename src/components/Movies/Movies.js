@@ -6,17 +6,20 @@ import Preloader from '../Preloader/Preloader';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 
-function Movies() {
-  const isLoading = false;
+function Movies({ searchCriteria, loggedIn, isLoading,
+  onSearch, movies, notFound, onMovieSave, onDelete }) {
   return (
-    <section>
-      <Header isLoggedIn={true} />
-      <SearchForm />
-      {isLoading ? (
-        <Preloader />
-      ) : (
-        <MoviesCardList canSave={true} />
-      )}
+    <section className="movies">
+      <Header loggedIn={loggedIn} />
+      <div className="movies__form">
+        <SearchForm searchCriteria={searchCriteria} onSearch={onSearch} />
+        {isLoading ? (
+          <Preloader />
+        ) : (
+          <MoviesCardList canSave={true} movies={movies} notFound={notFound}
+            onSave={onMovieSave} onDelete={onDelete} />
+        )}
+      </div>
       <Footer />
     </section>
   )

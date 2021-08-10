@@ -2,18 +2,24 @@ import React from 'react';
 import './MoviesCard.css';
 
 function MoviesCard(props) {
-  const { canSave, movie } = props;
-  const { title, duration, thumbnail } = movie;
-
-  const [isSaved, setIsSaved] = React.useState(false);
+  const { canSave, movie, onSave, onDelete } = props;
+  const { nameRU, duration, thumbnail, saved, trailer } = movie;
   const [isMouseOver, setMouseOver] = React.useState(false);
 
+  const h = Math.floor(duration / 60);
+  const m = duration % 60;
+  const durationStr = `${h !== 0 ? h + 'ч' : ''} ${m}м`;
+
   const handleMovieSave = () => {
-    setIsSaved(!isSaved);
+    if (!saved) {
+      onSave(movie);
+    } else {
+      onDelete(movie);
+    }
   }
 
   const handleMovieDelete = () => {
-
+    onDelete(movie);
   }
 
   const handleMouseEnter = () => {
@@ -24,17 +30,21 @@ function MoviesCard(props) {
     setMouseOver(false);
   }
 
+  const handleCardClick  = () => {
+    window.open(trailer);
+  }
+
   return (
     <div className="movies-card"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img src={thumbnail} alt={title} className="movies-card__img"></img>
+      <img src={thumbnail} alt={nameRU} className="movies-card__img" onClick={handleCardClick}></img>
       {canSave
         ? (
           <button type="button" onClick={handleMovieSave}
             className={`movies-card__button
-            ${isSaved
+            ${saved
                 ? "movies-card__save_active"
                 : isMouseOver && "movies-card__save"}`}>
           </button>
@@ -48,8 +58,8 @@ function MoviesCard(props) {
       }
 
       <div className="movies-card__description">
-        <h2 className="movies-card__title">{title}</h2>
-        <div className="movies-card__time">{duration}</div>
+        <h2 className="movies-card__title">{nameRU}</h2>
+        <div className="movies-card__time">{durationStr}</div>
       </div>
     </div>
   )

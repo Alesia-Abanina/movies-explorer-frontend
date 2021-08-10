@@ -111,6 +111,13 @@
   opacity: 0.8;
 }
 
+.auth-form__button:disabled {
+  cursor: default;
+  pointer-events: none;
+  color: black;
+  background-color: #E8E8E8;
+}
+
 .auth-form__text {
   color: #A0A0A0;
   font-size: 14px;

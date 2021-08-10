@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation(props) {
@@ -21,10 +21,11 @@ function Navigation(props) {
             activeClassName="navigation__link_active">Сохранённые фильмы
           </NavLink>
         </div>
-        <Link to="profile" className={`navigation__link navigation__link_${theme}`}>
+        <NavLink to="profile" className={`navigation__link navigation__link_${theme}`}
+          activeClassName="navigation__link_active">
           <span className="navigation__profile-text">Аккаунт</span>
           <div className="navigation__profile-icon"></div>
-        </Link>
+        </NavLink>
       </nav>
       <div className={`${isBurgerOpen && "navigation__overlay"}`} />
     </>

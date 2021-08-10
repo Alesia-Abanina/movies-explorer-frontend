@@ -5,7 +5,7 @@ import './Header.css';
 import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
-  const { isLoggedIn, theme = 'light' } = props;
+  const { loggedIn, theme = 'light' } = props;
   const [isBurgerOpen, setIsBurgerOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -29,7 +29,7 @@ function Header(props) {
         <img className="header__logo" src={logo} alt="Логотип" />
       </Link>
       {
-        isLoggedIn ? (
+        loggedIn ? (
           <div className="header__nav">
             <Navigation theme={theme} isBurgerOpen={isBurgerOpen} />
             <button type="button"
