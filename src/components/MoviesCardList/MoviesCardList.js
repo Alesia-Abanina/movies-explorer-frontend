@@ -1,28 +1,27 @@
 import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import { moviesList } from '../../utils/constants'
 
 function MoviesCardList({ canSave, movies, onSave, onDelete }) {
   const [displayMoviesNumber, setDisplayMoviesNumber] = React.useState(12);
   const [moreMoviesNumber, setMoreMoviesNumber] = React.useState(3);
 
   React.useEffect(() => {
+    const setCards = ({ cards, more }) => {
+      if (displayMoviesNumber < cards) {
+        setDisplayMoviesNumber(cards);
+      }
+      setMoreMoviesNumber(more);
+    }
+
     const setDefaultValues = () => {
       if (window.innerWidth <= 480) {
-        if (displayMoviesNumber < 5) {
-          setDisplayMoviesNumber(5);
-        }
-        setMoreMoviesNumber(1);
+        setCards(moviesList.small);
       } else if (window.innerWidth <= 768) {
-        if (displayMoviesNumber < 8) {
-          setDisplayMoviesNumber(8);
-        }
-        setMoreMoviesNumber(2);
+        setCards(moviesList.medium);
       } else {
-        if (displayMoviesNumber < 12) {
-          setDisplayMoviesNumber(12);
-        }
-        setMoreMoviesNumber(3);
+        setCards(moviesList.large);
       }
     }
 

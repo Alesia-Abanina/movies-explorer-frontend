@@ -1,11 +1,11 @@
-import { MOVIE_API_URL } from './constants';
+import { MOVIE_API_URL, SHORT_MOVIE_DURATION } from './constants';
 
-const isNullOrWhitespace = (input) =>{
+const isNullOrWhitespace = (input) => {
   return !input || !input.trim();
 }
 
-const getStringOrDefault = (input) =>{
-  return isNullOrWhitespace(input)  ? 'n/a': input;
+const getStringOrDefault = (input) => {
+  return isNullOrWhitespace(input) ? 'n/a' : input;
 }
 
 export const convertMovies = (movies, savedMovies) => {
@@ -42,7 +42,7 @@ export const searchMovies = (movies, keyword, isShort) => {
   return movies.filter((movie) => {
     let include = true;
     if (isShort) {
-      include = movie.duration <= 40;
+      include = movie.duration <= SHORT_MOVIE_DURATION;
     }
 
     if (include && keyword) {
